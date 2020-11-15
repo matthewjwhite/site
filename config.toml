@@ -1,4 +1,3 @@
-baseurl      = "localhost"
 title        = "Matt White"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
