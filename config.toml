@@ -1,8 +1,9 @@
 baseurl      = "localhost"
-title        = "My Blog"
+title        = "Matt White"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 10
+enableEmoji  = true
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -11,7 +12,7 @@ paginate     = 10
   dateformNumTime = "2006-01-02 15:04"
 
   # Subtitle for home
-  homeSubtitle = "A simple and beautiful blog"
+  homeSubtitle = "Software Engineer"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -34,14 +35,13 @@ paginate     = 10
 
 [languages]
   [languages.en]
-    title = "Hello Friend NG"
-    subtitle = "A simple theme for Hugo"
+    title = "Matt White"
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "hello friend ng"
+      logoText = "/home/mwhite"
       logoHomeLink = "/"
     # or
     #
@@ -53,3 +53,12 @@ paginate     = 10
     identifier = "blog"
     name       = "Blog"
     url        = "/posts"
+
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+
+  [[params.social]]
+    name = "github"
+    url = "https://www.github.com/matthewjwhite"
