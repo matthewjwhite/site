@@ -10,7 +10,8 @@ git clone --recursive git@github.com:matthewjwhite/site.git
 cd site/public
 git checkout main
 cd ..
-hugo # Make changes to content and generate static site.
+hugo new posts/new-file.md
+hugo # Generate static site.
 cd public
 git add .
 git commit -m 'Update site'
