@@ -1,6 +1,6 @@
 # site
 
-Fed to [`hugo`](https://gohugo.io/) to create https://matthewjwhite.github.io!
+Fed to [`hugo`](https://gohugo.io/) to create https://nonety.pe!
 See [this](https://github.com/matthewjwhite/matthewjwhite.github.io) for more.
 
 ## Usage
