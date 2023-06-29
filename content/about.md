@@ -1,10 +1,13 @@
 ---
-title: "Me"
+title: "👋"
 date: 2020-11-15T18:08:58-05:00
 ---
 
-Matt White is a Software Engineer.
+Hello! Matt White here, from :flag_us:.
 
-His interests include coding, metal, and 70's/80's cult and horror movies.
+I am a:
+* Software Engineer :man_technologist:.
+* Dog dad :dog:.
+* Horror addict :zombie:.
 
-His favorite programming language is currently Go.
+Thanks for stopping by!
