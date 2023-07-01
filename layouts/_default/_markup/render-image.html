@@ -1,0 +1,10 @@
+<div style="display: inline-block;">
+    <img
+        src="{{ .Destination | safeURL }}"
+        width=50px
+        alt="{{ .Text }}"
+        {{ with .Title }}
+            title="{{ . }}"
+        {{ end }}
+    />
+</div>
