@@ -36,9 +36,6 @@ disableHugoGeneratorInject = false
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 
-[author]
-  name = "Matt White"
-
 [blackfriday]
   hrefTargetBlank = true
 
@@ -110,13 +107,16 @@ disableHugoGeneratorInject = false
   # plausibleDataDomain = 'test.com'
   # plausibleScriptSource = 'https://plausible.io/js/script.js'
 
+  [params.author]
+    name = "Matt White"
+
   # Custom footer 
   # If you want, you can easily override the default footer with your own content. 
   #
   [params.footer]
-    trademark = true
+    trademark = false
     rss = false
-    copyright = false
+    copyright = true
     author = true
 
     topText = []
