@@ -52,7 +52,7 @@ disableHugoGeneratorInject = false
 
   # Metadata mostly used in document's head
   # 
-  description = "My new home page or blog"
+  description = "Matt White - Software Engineer"
   keywords = "homepage, blog"
   images = [""]
 
