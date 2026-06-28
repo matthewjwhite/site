@@ -1,21 +1,40 @@
-/* Theme toggle */
-function toggleTheme() {
-    document.body.classList.toggle("light");
-
+/* Set toggle, input boolean whether to set to light */
+function setTheme(isLight) {
     const btn = document.querySelector(".toggle");
 
-    btn.textContent = document.body.classList.contains("light")
-        ? "🌙"
-        : "🌞";
+    if (isLight) {
+        document.body.classList.add("light");
+        btn.textContent = "🌙";
+        setLightStorage(true);
+    } else {
+        document.body.classList.remove("light")
+        btn.textContent = "🌞";
+        setLightStorage(false);
+    }
+}
+
+/* Get current light boolean from localStorage, default to true if unset */
+function getLightStorage() {
+    return JSON.parse(localStorage.getItem("is_light")) === true;
+}
+
+/* Set light value in localStorage to input boolean */
+function setLightStorage(isLight) {
+    localStorage.setItem("is_light", JSON.stringify(isLight));
+}
+
+/* Toggle theme */
+function toggleTheme() {
+    if (document.body.classList.contains("light")) {
+        setTheme(false);
+    } else {
+        setTheme(true);
+    }
 }
 
 /* Set theme icon on load */
 window.addEventListener("load", () => {
-    const btn = document.querySelector(".toggle");
-
-    btn.textContent = document.body.classList.contains("light")
-        ? "🌙"
-        : "🌞";
+    setTheme(getLightStorage());
 });
 
 function toggleMenu() {
