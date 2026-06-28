@@ -1,0 +1,9 @@
+baseURL = 'https://mattwhite.io/'
+locale = 'en-us'
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    style = "vulcan"
+    noClasses = true

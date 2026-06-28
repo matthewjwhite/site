@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+{{ range .Pages }}
+<div class="section">
+    <h3>{{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+</div>
+{{ end }}
+
+{{ end }}

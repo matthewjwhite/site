@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+/* =========================================================
+   THEME VARIABLES
+========================================================= */
+body {
+    --bg: #0e1117;
+    --panel: #151a23;
+    --text: #e6ffe9;
+    --muted: #9fb6a6;
+    --border: #273447;
+
+    --accent: #39ff88;
+    --accent2: #ffcc66;
+    --accent3: #ff5c7a;
+
+    margin: 0;
+    background: var(--bg);
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--text);
+    font-size: 13px;
+}
+
+/* Light theme override */
+body.light {
+    --bg: #f5f7ff;
+    --panel: #ffffff;
+    --text: #121827;
+    --muted: #4b556a;
+    --border: #d7ddf0;
+
+    --accent: #4f7cff;
+    --accent2: #7c5cff;
+    --accent3: #5ad1ff;
+}
+
+/* =========================================================
+   BOOT SEQUENCE
+========================================================= */
+#boot {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+.boot-inner {
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.boot-line {
+    margin: 4px 0;
+    font-size: 13px;
+    color: var(--muted);
+    opacity: 0;
+    white-space: pre;
+    animation: fadeIn 0.15s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+#boot.done {
+    animation: bootOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes bootOut {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(2px);
+        pointer-events: none;
+    }
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+.wrapper {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 10px;
+
+    display: flex;
+    gap: 20px;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+    position: relative;
+    width: 260px;
+    height: fit-content;
+
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sidebar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    opacity: 0.85;
+}
+
+/* =========================================================
+   PROFILE PICTURE (PULSING HEX AVATAR)
+========================================================= */
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 15px;
+
+    border: none;
+
+    clip-path: polygon(
+        25% 6%,
+        75% 6%,
+        100% 50%,
+        75% 94%,
+        25% 94%,
+        0% 50%
+    );
+
+    box-shadow:
+        0 0 0 2px var(--border),
+        0 0 18px rgba(57, 255, 136, 0.25);
+
+    animation: avatarPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+    0% {
+        transform: scale(1);
+        box-shadow:
+            0 0 0 2px var(--border),
+            0 0 10px rgba(57, 255, 136, 0.15);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow:
+            0 0 0 2px var(--accent),
+            0 0 28px rgba(57, 255, 136, 0.45);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 0 2px var(--border),
+            0 0 10px rgba(57, 255, 136, 0.15);
+    }
+}
+
+/* Sidebar text */
+.sidebar h1 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.sidebar p {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.sidebar a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+.main {
+    flex: 1;
+}
+
+.main a {
+    color: color-mix(in srgb, var(--accent) 60%, black);
+    text-decoration: none;
+}
+
+.main a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 10px;
+
+    padding: 20px;
+    margin-bottom: 20px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    opacity: 0.75;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.toggle {
+    justify-self: end;
+    padding: 4px 8px;
+    font-size: 18px;
+    font-family: inherit;
+    cursor: pointer;
+
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.hamburger {
+    justify-self: end;
+    padding: 4px 8px;
+    font-size: 18px;
+    font-family: inherit;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    min-width: 140px;
+    z-index: 10000;
+}
+
+.menu a {
+    padding: 10px;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+}
+
+.menu a:last-child {
+    border-bottom: none;
+}
+
+.menu.show {
+    display: flex;
+}
+
+.title {
+    grid-column: 1 / -1;
+    font-size: 20px;
+}
+
+/* Cursor blink */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 16px;
+
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+
+    animation: blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+.section {
+    position: relative;
+
+    margin-bottom: 15px;
+    padding: 18px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2));
+}
+
+.section h3 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    color: var(--accent);
+}
+
+.section p,
+.section .meta {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer.meta {
+    margin-top: 30px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .profile-pic {
+        width: 48px;
+        height: 48px;
+        margin: 0;
+    }
+
+    .sidebar p {
+        display: none;
+    }
+}
