@@ -9,6 +9,9 @@ body {
     --text: #e6ffe9;
     --muted: #9fb6a6;
     --border: #273447;
+    --z-content: 1;
+    --z-header: 2;
+    --z-menu: 3;
 
     --accent: #39ff88;
     --accent2: #ffcc66;
@@ -203,6 +206,8 @@ body.light {
 ========================================================= */
 .main {
     flex: 1;
+    position: relative;
+    z-index: var(--z-content);
 }
 
 .main a {
@@ -220,6 +225,7 @@ body.light {
 ========================================================= */
 .header {
     position: relative;
+    z-index: var(--z-header);
 
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -300,7 +306,7 @@ body.light {
     display: none;
     flex-direction: column;
     min-width: 140px;
-    z-index: 10000;
+    z-index: var(--z-menu);
 }
 
 .menu a {
