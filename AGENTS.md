@@ -13,6 +13,8 @@
   would be much longer or more awkward.
 - Preserve front matter formatting as-is unless the user asks for a
   broader cleanup.
+- Formatting changes must never alter wording, meaning, punctuation, or
+  content. Only Markdown structure and layout may change.
 - Do not reflow fenced code blocks or inline code spans.
 - Keep list items readable and indented consistently.
 - If a post is already using this style, preserve it during future edits.
