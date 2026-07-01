@@ -13,6 +13,7 @@
     </div>
 
     <div class="title">
-        matt@home:~$ <span class="cursor"></span>
+        {{ $path := trim .RelPermalink "/" }}
+        ~{{ if $path }}/{{ $path }}{{ end }} $ <span class="cursor"></span>
     </div>
 </div>
