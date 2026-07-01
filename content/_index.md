@@ -10,6 +10,8 @@ A software engineer from the United States 🇺🇸.
 Enjoys software development, cloud-native systems, and SRE.
 
 Dog dad 🐶, horror addict 🧟, and collector of media 📼.
+
+**All words written by me and all opinions are my own.**
 {{< /section >}}
 
 {{< section >}}
